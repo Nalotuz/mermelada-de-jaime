@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwiy832ksv4gd"]
+
+[ext_resource type="Texture2D" uid="uid://b8hw3gebo7txl" path="res://art/espacios/lab/Fondolab.png" id="1_21r5s"]
+[ext_resource type="PackedScene" uid="uid://cbjrwtm2gv0lt" path="res://Personajes/azul.tscn" id="2_o60gn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ubob"]
+size = Vector2(20, 794)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0q8tq"]
+size = Vector2(2536, 74)
+
+[node name="Main" type="Node2D"]
+
+[node name="Fondos" type="Node2D" parent="."]
+
+[node name="Fondo" type="Sprite2D" parent="Fondos"]
+position = Vector2(640, 232)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_21r5s")
+
+[node name="pared" type="StaticBody2D" parent="Fondos"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fondos/pared"]
+position = Vector2(-560, 232)
+shape = SubResource("RectangleShape2D_5ubob")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Fondos/pared"]
+position = Vector2(1840, 232)
+shape = SubResource("RectangleShape2D_5ubob")
+
+[node name="suelo" type="StaticBody2D" parent="Fondos"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fondos/suelo"]
+position = Vector2(620, 648)
+shape = SubResource("RectangleShape2D_0q8tq")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(512, 400)
+scale = Vector2(0.145, 0.145)
+
+[node name="Azul" parent="Node2D" instance=ExtResource("2_o60gn")]
+
+[node name="Camera2D" type="Camera2D" parent="Node2D/Azul"]
+position = Vector2(110.345, -827.586)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
